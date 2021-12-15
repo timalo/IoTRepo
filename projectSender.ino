@@ -21,10 +21,13 @@ void loop()
 {
   //TODO: if millis() > 21600000 then go to loop
   //we want to enter the loop only after the Arduino has been on for at least 6 hours, this time can be changed later
-  delay(500);
+  delay(100);
   if(readDist() < 50){
     Bluetooth.write("1");
     Serial.println("sent order to start the kettle");
+    delay(60000); // wait a minute for the water to boil change this to whatever value do you think it takes
+    Bluetooth.write("2");
+    Serial.println("sent order to turn off the kettle");
   }
   // Keep reading from HC-06 and send to Arduino Serial Monitor
   if (Bluetooth.available()){

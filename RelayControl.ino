@@ -16,7 +16,7 @@ void setup() {
 }
 
 void loop() {
-  delay(500);
+  delay(100);
   c = ' ';
   // put your main code here, to run repeatedly:
   // Keep reading from HC-06 and send to Arduino Serial Monitor, also save received char to var c
@@ -31,6 +31,10 @@ void loop() {
   if(c == '1'){
     Serial.println("kettle on");
     digitalWrite(in1, HIGH);
+  }
+  else if (c == '2'){
+    Serial.println("kettle off");
+    digitalWrite(in2, LOW);
   }
 
   
